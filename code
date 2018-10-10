@@ -1,0 +1,110 @@
+/* 
++-------------------------------------------------------------------+  
+| = : = : = : = : = : = : = : = : = : = : = : = : = : = : = : = : = |
+|{>/-------------------------------------------------------------\<}|
+|: |                                                             | :| 
+| :|                 C program by Breanne Ludovice               |: | 
+|: |                                                             | :|
+| :|                    CS1310 October 11, 2018                  |: |
+|: |                                                             | :| 
+| :|                 Assignment: Practice 7, Loops               |: | 
+|: |                                                             | :|
+| :|                             _ _                             |: | 
+|: |                           _{ ' }_                           | :| 
+| :|                          { `.!.` }                          |: |
+|: |                          ',_/Y\_,'                          | :| 
+| :|                            {_,_}                            |: | 
+|: |                              |                              | :|
+| :|                            (\|  /)                          |: | 
+|: |                             \| //                           | :|
+| :|                              |//                            |: |
+|: |                           \\ |/  //                         | :|
+| :|                        ^^^^^^^^^^^^^^^                      |: |
+|{>\-------------------------------------------------------------/<}|
+| = : = : = : = : = : = : = : = : = : = : = : = : = : = : = : = : = |
++-------------------------------------------------------------------+
+*/
+#include <stdio.h>
+
+
+int print_rows (int rows)   /* asks the user for number of rows to print */
+{
+ printf ("How many rows would you like to print?\n");
+ do {
+ 	 printf ("Please type in a positive number:  ");
+ 	 scanf ("%i", &rows);
+ 	} while (rows < 0);
+ 	 printf ("\nYou entered: %i row(s)\n\n", rows);
+ 	 return rows;
+}
+
+
+
+int print_columns (int columns)   /* asks the user for number of columns to print */
+{
+ printf ("How many asterisks would you like in each row?\n");
+ do {
+ 	 printf ("Please type in a positive number:  ");
+  	 scanf ("%i", &columns);
+ 	} while (columns < 0);
+	 printf ("\nYou entered: %i column(s) of asterisks\n\n", columns);
+	 return columns;
+}
+
+
+
+int print_patternWhile (int rows, int columns)
+{
+ int countRows = 1; 
+ int countColumns = 1;
+ 
+ while (countRows <= rows);
+ 	{
+ 	 while (countColumns <= columns);
+ 	 	{
+ 	 	 printf ("*");
+ 	 	 countColumns++;
+ 	 	}
+ 	 	
+ 	 printf ("\n");
+ 	 countRows++;
+ 	}
+}
+
+
+
+int print_pattern (int rows, int columns)   /* prints the pattern */
+{
+ int countRows, countColumns;   			   /* increments the counter of rows/columns */
+
+ for (countRows = 1; countRows <= rows; countRows++)
+ 	{
+  	 for (countColumns = 1; countColumns <= columns; countColumns++)
+ 		{
+   	 	 printf ("*");	
+  		}
+  	 printf ("\n");
+ 	}
+}
+
+
+
+void main (void)
+{
+ int rows, columns;				  /* a positive integer the user enters */
+ int pattern;		  /* the pattern that will be printed */
+ 
+ printf ("This program prints a pattern of asterisks the user requests using a while loop and for loop.\n\n");
+ 
+ rows = print_rows (rows);
+ columns = print_columns (columns); 
+ 
+ printf ("Here is your pattern!\n\n");
+ 
+
+ pattern = print_pattern (rows, columns);
+ 
+ printf ("\nYour pattern called for %i row(s) and %i column(s) of asterisks.", rows, columns);
+ 
+ 
+}
